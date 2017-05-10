@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+	background: url(https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/15747530_1256935721036700_9028758266299193033_n.jpg?oh=b87473899bb5b9904530453934437ec2&oe=5977EDE2) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+/* Search Form */
+
+form, #search {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+form {
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+#search {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0.5em 0;
+  padding: 1em 0.5em 0.5em 1em;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  max-width: 400px;
+}
+
+.wholeScreen {
+  height: 100vh;
+}
+
+#search button, #search input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent;
+  
+  color: inherit;
+  font: inherit;
+  outline: 0;
+}
+
+#button {
+  border: 0;
+  cursor: pointer;
+  padding: 0 0.25em;
+}
+
+#search input {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 0;
+	border-bottom: 3px solid red;
+  background: transparent;
+  height: 30px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.3em;
+}
+
+#search .spinner {
+  -webkit-animation: spinner 1s infinite linear;
+          animation: spinner 1s infinite linear;
+  display: none;
+  padding: 0 0.25em;
+}
+
+/* Spinner Animations */
+
+#search.loading button {
+  display: none;
+}
+#search.loading .spinner {
+  display: block;
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/* Placeholder Text */
+
+::-webkit-input-placeholder {
+  color: #fff;
+  font-size: 1.2em;
+}
+:-moz-placeholder {
+  color: #fff;
+  font-size: 1.2em;
+}
+::-moz-placeholder {
+  color: #fff;
+  font-size: 1.2em;
+}
+:-ms-input-placeholder {
+  color: #fff;
+  font-size: 1.2em;
+}
+
+/* Alter autofill styles */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-size: 1.5em;
+}
+
+/* Random Article Buttons */
+.randomButton {
+  background: transparent;
+  border: none;
+}
+
+.fa-search, .fa-random , .fa-spinner, .fa-close {
+  color: white;
+  font-size: 2em;
+}
+
+/* Button Screen Reader Text */
+
+.screen-reader-text {
+  height: auto;
+  width: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+}
+.screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus {
+  height: auto;
+  width: auto;
+  background-color: #000000;
+  border-radius: 2px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #FFFFFF;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  left: 0.3125rem;
+  line-height: normal;
+  padding: 0.9375rem 1.4375rem 0.875rem;
+  text-decoration: none;
+  top: 0.3125rem;
+  z-index: 100000;
+}
+
+/* Results Styles*/
+.wiki-article {
+  background: #EDE8E8;
+  padding: 10px 10px 20px 14px;
+  margin-bottom: 10px;
+  border-left: 6px #EDE8E8 solid; /* Cheat to stop the div from moving on hover */
+}
+
+.wiki-article a {
+  text-decoration: none;
+  color: black;
+}
+
+.wiki-article:hover {
+  border-left: 6px #5C2A6F solid;
+}
+
+/* Animations */
+.animate-enter
+{ 
+    -webkit-animation: fadeInUp 1.5s;
+    animation: fadeInUp 1.5s;
+} 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Wikipedia-Viewer™</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div ng-app="wikiSearch">
+
+  <form ng-submit="search()" ng-controller="searchCtrl">
+    <div id="search" ng-class="{'wholeScreen': noEntries}">
+      <input id="input" placeholder="Search..." type="text" ng-model="searchInput" ng-focus="focus()"/>
+      <button id="button" type="submit" ng-show="!isFocused"><span class="screen-reader-text">Search</span><i class="fa fa-search"></i></button>
+      <button id="button" type="button" ng-show="isFocused" ng-click="unFocus()"><span class="screen-reader-text">Exit</span><i class="fa fa-close"></i></button>
+      <div class="spinner"><i class="fa fa-spinner"></i></div>
+
+      <a class="randomButton" ng-href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><i class="fa fa-random"></i></a>
+    </div>
+  </form>
+
+
+  <articles></articles>
+
+  <script type="text/ng-template" id="articles.html">
+    <div class="wiki-article animate-enter" ng-repeat="article in articles">
+      <a ng-href="https://en.wikipedia.org/wiki/{{article.title | encodeURIComponent}}" target="_blank">
+        <h1 ng-bind-html="article.title | renderHTMLCorrectly" class="article-title">
+        </h1>
+        <p ng-bind-html="article.snippet | renderHTMLCorrectly">
+        </p>
+      </a>
+    </div>
+  </script>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
